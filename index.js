@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const {connectDB} = require('./database/db.js');
 const userRoutes = require('./routes/userRoutes')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware.js');
+const songRoutes = require('./routes/songRoutes');
 dotenv.config();
 
 const port = process.env.PORT;
@@ -19,12 +20,13 @@ const app = express()
 //     credentials: true
 // }
 //cros connection
-//app.use(cors());
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
 //routes connection
-app.use('/api/user',userRoutes)
+app.use('/api/user',userRoutes);
+app.use('/api/song/',songRoutes);
 app.use(notFound);
 app.use(errorHandler);
 app.listen(port,()=>{
