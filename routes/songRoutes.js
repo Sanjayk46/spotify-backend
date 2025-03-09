@@ -8,7 +8,6 @@ const fetchSongs = async (query) => {
     try {
         const response = await axios.get(`https://saavn.dev/api/search/songs?query=${encodeURIComponent(query)}`, {
             headers: {
-                "User-Agent": "Mozilla/5.0",
                 "Accept": "application/json"
             }
         });
@@ -58,7 +57,6 @@ const searchSongs = async (query) => {
         // Make the API request
         const response = await axios.get(url, {
             headers: {
-                "User-Agent": "Mozilla/5.0",
                 "Accept": "application/json"
             }
         });
@@ -111,7 +109,6 @@ const fetchAlbumSongs = async (albumId) => {
         const url = `https://saavn.dev/api/albums?id=${albumId}`;
         const response = await axios.get(url, {
             headers: {
-                "User-Agent": "Mozilla/5.0",
                 "Accept": "application/json"
             }
         });
@@ -169,7 +166,6 @@ const fetchplaylistSongs = async (playlistId) => {
         const url = `https://saavn.dev/api/playlists?id=${playlistId}`;
         const response = await axios.get(url, {
             headers: {
-                "User-Agent": "Mozilla/5.0",
                 "Accept": "application/json"
             }
         });
@@ -227,7 +223,6 @@ const fetchArtistSongs = async (artistName) => {
         const url = `https://saavn.dev/api/search/songs?query=${encodeURIComponent(artistName)}&limit=20`;
         const response = await axios.get(url, {
             headers: {
-                "User-Agent": "Mozilla/5.0",
                 "Accept": "application/json"
             }
         });
@@ -266,7 +261,6 @@ router.get('/artist', async (req, res) => {
         const artistUrl = `https://saavn.dev/api/artists?id=${artistId}`;
         const artistResponse = await axios.get(artistUrl, {
             headers: {
-                "User-Agent": "Mozilla/5.0",
                 "Accept": "application/json"
             }
         });
